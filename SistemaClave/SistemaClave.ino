@@ -8,7 +8,7 @@
 /*Integrantes:
 
   Julian Rojas    julianrojas@unicauca.edu.co
-  David Cardenas  jcardnass@unicauca.edu.co
+  David Cardenas  jcardenass@unicauca.edu.co
   Andrés Sandino  asandino@unicauca.edu.co
 
 */ 
