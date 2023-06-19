@@ -1,0 +1,360 @@
+\doxysection{C\+:/\+Users/lopez/\+Desktop/\+Entrega/\+Entrega/\+Sistema\+Clave/\+Sistema\+Clave.ino File Reference}
+\hypertarget{_sistema_clave_8ino}{}\label{_sistema_clave_8ino}\index{C:/Users/lopez/Desktop/Entrega/Entrega/SistemaClave/SistemaClave.ino@{C:/Users/lopez/Desktop/Entrega/Entrega/SistemaClave/SistemaClave.ino}}
+{\ttfamily \#include \"{}pinout.\+h\"{}}\newline
+{\ttfamily \#include $<$Servo.\+h$>$}\newline
+{\ttfamily \#include \"{}Constum\+Char.\+h\"{}}\newline
+{\ttfamily \#include \"{}DHTStable.\+h\"{}}\newline
+{\ttfamily \#include $<$Keypad.\+h$>$}\newline
+{\ttfamily \#include $<$Liquid\+Crystal.\+h$>$}\newline
+{\ttfamily \#include $<$Async\+Task\+Lib.\+h$>$}\newline
+{\ttfamily \#include \"{}Sounds.\+h\"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_sistema_clave_8ino_a8a979668ecb044c9ac0e5017107f1d52}{DEBUG}}(a)~Serial.\+print(millis()); Serial.\+print(\"{}\+: \"{}); Serial.\+println(a);
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_sistema_clave_8ino_a48a0d8b3011bb470d61edc1ec3a7cbeb}{show\+Spalsh\+Screen}} ()
+\item 
+void \mbox{\hyperlink{_sistema_clave_8ino_a2db3e37b020d71870ef1021eac8ee9f7}{update\+Cursor}} ()
+\item 
+Liquid\+Crystal \mbox{\hyperlink{_sistema_clave_8ino_aca85f744646bfbc6d0f732f3b0b938f3}{lcd}} (12, 11, 10, 9, 8, 7)
+\item 
+void \mbox{\hyperlink{_sistema_clave_8ino_aeca339a83acedb47359e0c398765e687}{mostrar\+Temp}} ()
+\item 
+void \mbox{\hyperlink{_sistema_clave_8ino_afd334a4d81eb488c4fdb218ab49aa436}{mostrar\+Luz}} ()
+\item 
+Async\+Task \mbox{\hyperlink{_sistema_clave_8ino_a11afb6ba55e6d93632d0acc1690c9cae}{async\+Task1}} (2000, true, \mbox{\hyperlink{_sistema_clave_8ino_aeca339a83acedb47359e0c398765e687}{mostrar\+Temp}})
+\item 
+Async\+Task \mbox{\hyperlink{_sistema_clave_8ino_adc35bff5c83773761f700b7981066739}{async\+Task2}} (1000, true, \mbox{\hyperlink{_sistema_clave_8ino_afd334a4d81eb488c4fdb218ab49aa436}{mostrar\+Luz}})
+\item 
+void \mbox{\hyperlink{_sistema_clave_8ino_a949b51d9fe6245fc349f1b2be2414e0a}{sonido\+Entrar}} ()
+\item 
+void \mbox{\hyperlink{_sistema_clave_8ino_a9a08b52ee75702e498105356d83e4c5c}{sonido\+Errado}} ()
+\item 
+void \mbox{\hyperlink{_sistema_clave_8ino_a2280ef9d7eabe9c3a4d379805e84fc28}{sonido\+Bloquear}} ()
+\item 
+void \mbox{\hyperlink{_sistema_clave_8ino_a2c050ee9c5c349a4c3647e55f6dbf496}{sistema\+Contrasenia}} ()
+\item 
+void \mbox{\hyperlink{_sistema_clave_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup}} ()
+\item 
+void \mbox{\hyperlink{_sistema_clave_8ino_afe461d27b9c48d5921c00d521181f12f}{loop}} ()
+\item 
+void \mbox{\hyperlink{_sistema_clave_8ino_a116cbbfb3cc34707f05f859a8dd4cde5}{sonido\+Bloqueado}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+DHTStable \mbox{\hyperlink{_sistema_clave_8ino_aff26b1d15dd10336e33d0138e24aa8df}{DHT}}
+\item 
+const byte \mbox{\hyperlink{_sistema_clave_8ino_a332148869b2d5d97d18079aa63a2c553}{KEYPAD\+\_\+\+ROWS}} = 4
+\item 
+const byte \mbox{\hyperlink{_sistema_clave_8ino_a11f9025ef955263da5731a506b2d830d}{KEYPAD\+\_\+\+COLS}} = 4
+\item 
+byte \mbox{\hyperlink{_sistema_clave_8ino_a537de3b3399ca7c8fdec5862538861ab}{row\+Pins}} \mbox{[}\mbox{\hyperlink{_sistema_clave_8ino_a332148869b2d5d97d18079aa63a2c553}{KEYPAD\+\_\+\+ROWS}}\mbox{]} = \{5, 4, 3, 2\}
+\item 
+byte \mbox{\hyperlink{_sistema_clave_8ino_a3c964a40ceee38dff58e11bf85ebcf5e}{col\+Pins}} \mbox{[}\mbox{\hyperlink{_sistema_clave_8ino_a11f9025ef955263da5731a506b2d830d}{KEYPAD\+\_\+\+COLS}}\mbox{]} = \{A3, A2, A1, A4\}
+\item 
+char \mbox{\hyperlink{_sistema_clave_8ino_a6cd72e3b474ca29b76d4a7758b0bfff5}{keys}} \mbox{[}\mbox{\hyperlink{_sistema_clave_8ino_a332148869b2d5d97d18079aa63a2c553}{KEYPAD\+\_\+\+ROWS}}\mbox{]}\mbox{[}\mbox{\hyperlink{_sistema_clave_8ino_a11f9025ef955263da5731a506b2d830d}{KEYPAD\+\_\+\+COLS}}\mbox{]}
+\item 
+Keypad \mbox{\hyperlink{_sistema_clave_8ino_a0e6c3cc7e8c762ab0ca1fa2296d7bbfe}{keypad}} = Keypad(make\+Keymap(\mbox{\hyperlink{_sistema_clave_8ino_a6cd72e3b474ca29b76d4a7758b0bfff5}{keys}}), \mbox{\hyperlink{_sistema_clave_8ino_a537de3b3399ca7c8fdec5862538861ab}{row\+Pins}}, \mbox{\hyperlink{_sistema_clave_8ino_a3c964a40ceee38dff58e11bf85ebcf5e}{col\+Pins}}, \mbox{\hyperlink{_sistema_clave_8ino_a332148869b2d5d97d18079aa63a2c553}{KEYPAD\+\_\+\+ROWS}}, \mbox{\hyperlink{_sistema_clave_8ino_a11f9025ef955263da5731a506b2d830d}{KEYPAD\+\_\+\+COLS}})
+\item 
+boolean \mbox{\hyperlink{_sistema_clave_8ino_a8a39bd89195ffac0f9fa3a2f0fe83fa5}{ban}} = false
+\item 
+char \mbox{\hyperlink{_sistema_clave_8ino_a71efda6978641548f428da4563415ed4}{password\+Correcta}} \mbox{[}$\,$\mbox{]} = \"{}12345\"{}
+\item 
+char \mbox{\hyperlink{_sistema_clave_8ino_afa84c2e2bc44a599431faefb07d2f607}{password}} \mbox{[}6\mbox{]}
+\item 
+byte \mbox{\hyperlink{_sistema_clave_8ino_a94f5b83df4e7e681da46bfa503ac6b1a}{intentos}} = 3
+\item 
+uint64\+\_\+t \mbox{\hyperlink{_sistema_clave_8ino_a4e630859cc0e2a22bd6acf39a6a8e218}{value}} = 0
+\item 
+unsigned char \mbox{\hyperlink{_sistema_clave_8ino_a01494b8fd5801ba9e205324f4b1545ea}{i}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{_sistema_clave_8ino_a8a979668ecb044c9ac0e5017107f1d52}\label{_sistema_clave_8ino_a8a979668ecb044c9ac0e5017107f1d52} 
+\index{SistemaClave.ino@{SistemaClave.ino}!DEBUG@{DEBUG}}
+\index{DEBUG@{DEBUG}!SistemaClave.ino@{SistemaClave.ino}}
+\doxysubsubsection{\texorpdfstring{DEBUG}{DEBUG}}
+{\footnotesize\ttfamily \#define DEBUG(\begin{DoxyParamCaption}\item[{}]{a }\end{DoxyParamCaption})~Serial.\+print(millis()); Serial.\+print(\"{}\+: \"{}); Serial.\+println(a);}
+
+LCD control functions 
+
+Definition at line \mbox{\hyperlink{_sistema_clave_8ino_source_l00038}{38}} of file \mbox{\hyperlink{_sistema_clave_8ino_source}{Sistema\+Clave.\+ino}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_sistema_clave_8ino_a11afb6ba55e6d93632d0acc1690c9cae}\label{_sistema_clave_8ino_a11afb6ba55e6d93632d0acc1690c9cae} 
+\index{SistemaClave.ino@{SistemaClave.ino}!asyncTask1@{asyncTask1}}
+\index{asyncTask1@{asyncTask1}!SistemaClave.ino@{SistemaClave.ino}}
+\doxysubsubsection{\texorpdfstring{asyncTask1()}{asyncTask1()}}
+{\footnotesize\ttfamily Async\+Task async\+Task1 (\begin{DoxyParamCaption}\item[{2000}]{,  }\item[{true}]{,  }\item[{\mbox{\hyperlink{_sistema_clave_8ino_aeca339a83acedb47359e0c398765e687}{mostrar\+Temp}}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{_sistema_clave_8ino_adc35bff5c83773761f700b7981066739}\label{_sistema_clave_8ino_adc35bff5c83773761f700b7981066739} 
+\index{SistemaClave.ino@{SistemaClave.ino}!asyncTask2@{asyncTask2}}
+\index{asyncTask2@{asyncTask2}!SistemaClave.ino@{SistemaClave.ino}}
+\doxysubsubsection{\texorpdfstring{asyncTask2()}{asyncTask2()}}
+{\footnotesize\ttfamily Async\+Task async\+Task2 (\begin{DoxyParamCaption}\item[{1000}]{,  }\item[{true}]{,  }\item[{\mbox{\hyperlink{_sistema_clave_8ino_afd334a4d81eb488c4fdb218ab49aa436}{mostrar\+Luz}}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{_sistema_clave_8ino_aca85f744646bfbc6d0f732f3b0b938f3}\label{_sistema_clave_8ino_aca85f744646bfbc6d0f732f3b0b938f3} 
+\index{SistemaClave.ino@{SistemaClave.ino}!lcd@{lcd}}
+\index{lcd@{lcd}!SistemaClave.ino@{SistemaClave.ino}}
+\doxysubsubsection{\texorpdfstring{lcd()}{lcd()}}
+{\footnotesize\ttfamily Liquid\+Crystal lcd (\begin{DoxyParamCaption}\item[{12}]{,  }\item[{11}]{,  }\item[{10}]{,  }\item[{9}]{,  }\item[{8}]{,  }\item[{7}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{_sistema_clave_8ino_afe461d27b9c48d5921c00d521181f12f}\label{_sistema_clave_8ino_afe461d27b9c48d5921c00d521181f12f} 
+\index{SistemaClave.ino@{SistemaClave.ino}!loop@{loop}}
+\index{loop@{loop}!SistemaClave.ino@{SistemaClave.ino}}
+\doxysubsubsection{\texorpdfstring{loop()}{loop()}}
+{\footnotesize\ttfamily void loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_sistema_clave_8ino_source_l00098}{98}} of file \mbox{\hyperlink{_sistema_clave_8ino_source}{Sistema\+Clave.\+ino}}.
+
+\Hypertarget{_sistema_clave_8ino_afd334a4d81eb488c4fdb218ab49aa436}\label{_sistema_clave_8ino_afd334a4d81eb488c4fdb218ab49aa436} 
+\index{SistemaClave.ino@{SistemaClave.ino}!mostrarLuz@{mostrarLuz}}
+\index{mostrarLuz@{mostrarLuz}!SistemaClave.ino@{SistemaClave.ino}}
+\doxysubsubsection{\texorpdfstring{mostrarLuz()}{mostrarLuz()}}
+{\footnotesize\ttfamily void mostrar\+Luz (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_sistema_clave_8ino_source_l00281}{281}} of file \mbox{\hyperlink{_sistema_clave_8ino_source}{Sistema\+Clave.\+ino}}.
+
+\Hypertarget{_sistema_clave_8ino_aeca339a83acedb47359e0c398765e687}\label{_sistema_clave_8ino_aeca339a83acedb47359e0c398765e687} 
+\index{SistemaClave.ino@{SistemaClave.ino}!mostrarTemp@{mostrarTemp}}
+\index{mostrarTemp@{mostrarTemp}!SistemaClave.ino@{SistemaClave.ino}}
+\doxysubsubsection{\texorpdfstring{mostrarTemp()}{mostrarTemp()}}
+{\footnotesize\ttfamily void mostrar\+Temp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Asynchronous Task control functions 
+
+Definition at line \mbox{\hyperlink{_sistema_clave_8ino_source_l00238}{238}} of file \mbox{\hyperlink{_sistema_clave_8ino_source}{Sistema\+Clave.\+ino}}.
+
+\Hypertarget{_sistema_clave_8ino_a4fc01d736fe50cf5b977f755b675f11d}\label{_sistema_clave_8ino_a4fc01d736fe50cf5b977f755b675f11d} 
+\index{SistemaClave.ino@{SistemaClave.ino}!setup@{setup}}
+\index{setup@{setup}!SistemaClave.ino@{SistemaClave.ino}}
+\doxysubsubsection{\texorpdfstring{setup()}{setup()}}
+{\footnotesize\ttfamily void setup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_sistema_clave_8ino_source_l00074}{74}} of file \mbox{\hyperlink{_sistema_clave_8ino_source}{Sistema\+Clave.\+ino}}.
+
+\Hypertarget{_sistema_clave_8ino_a48a0d8b3011bb470d61edc1ec3a7cbeb}\label{_sistema_clave_8ino_a48a0d8b3011bb470d61edc1ec3a7cbeb} 
+\index{SistemaClave.ino@{SistemaClave.ino}!showSpalshScreen@{showSpalshScreen}}
+\index{showSpalshScreen@{showSpalshScreen}!SistemaClave.ino@{SistemaClave.ino}}
+\doxysubsubsection{\texorpdfstring{showSpalshScreen()}{showSpalshScreen()}}
+{\footnotesize\ttfamily void show\+Spalsh\+Screen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Arduino Calculator
+
+Copyright (C) 2020, Uri Shaked. Released under the MIT License. 
+
+Definition at line \mbox{\hyperlink{_sistema_clave_8ino_source_l00133}{133}} of file \mbox{\hyperlink{_sistema_clave_8ino_source}{Sistema\+Clave.\+ino}}.
+
+\Hypertarget{_sistema_clave_8ino_a2c050ee9c5c349a4c3647e55f6dbf496}\label{_sistema_clave_8ino_a2c050ee9c5c349a4c3647e55f6dbf496} 
+\index{SistemaClave.ino@{SistemaClave.ino}!sistemaContrasenia@{sistemaContrasenia}}
+\index{sistemaContrasenia@{sistemaContrasenia}!SistemaClave.ino@{SistemaClave.ino}}
+\doxysubsubsection{\texorpdfstring{sistemaContrasenia()}{sistemaContrasenia()}}
+{\footnotesize\ttfamily void sistema\+Contrasenia (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Password control functions 
+
+Definition at line \mbox{\hyperlink{_sistema_clave_8ino_source_l00305}{305}} of file \mbox{\hyperlink{_sistema_clave_8ino_source}{Sistema\+Clave.\+ino}}.
+
+\Hypertarget{_sistema_clave_8ino_a116cbbfb3cc34707f05f859a8dd4cde5}\label{_sistema_clave_8ino_a116cbbfb3cc34707f05f859a8dd4cde5} 
+\index{SistemaClave.ino@{SistemaClave.ino}!sonidoBloqueado@{sonidoBloqueado}}
+\index{sonidoBloqueado@{sonidoBloqueado}!SistemaClave.ino@{SistemaClave.ino}}
+\doxysubsubsection{\texorpdfstring{sonidoBloqueado()}{sonidoBloqueado()}}
+{\footnotesize\ttfamily void sonido\+Bloqueado (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_sistema_clave_8ino_source_l00216}{216}} of file \mbox{\hyperlink{_sistema_clave_8ino_source}{Sistema\+Clave.\+ino}}.
+
+\Hypertarget{_sistema_clave_8ino_a2280ef9d7eabe9c3a4d379805e84fc28}\label{_sistema_clave_8ino_a2280ef9d7eabe9c3a4d379805e84fc28} 
+\index{SistemaClave.ino@{SistemaClave.ino}!sonidoBloquear@{sonidoBloquear}}
+\index{sonidoBloquear@{sonidoBloquear}!SistemaClave.ino@{SistemaClave.ino}}
+\doxysubsubsection{\texorpdfstring{sonidoBloquear()}{sonidoBloquear()}}
+{\footnotesize\ttfamily void sonido\+Bloquear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{_sistema_clave_8ino_a949b51d9fe6245fc349f1b2be2414e0a}\label{_sistema_clave_8ino_a949b51d9fe6245fc349f1b2be2414e0a} 
+\index{SistemaClave.ino@{SistemaClave.ino}!sonidoEntrar@{sonidoEntrar}}
+\index{sonidoEntrar@{sonidoEntrar}!SistemaClave.ino@{SistemaClave.ino}}
+\doxysubsubsection{\texorpdfstring{sonidoEntrar()}{sonidoEntrar()}}
+{\footnotesize\ttfamily void sonido\+Entrar (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Sound control functions 
+
+Definition at line \mbox{\hyperlink{_sistema_clave_8ino_source_l00176}{176}} of file \mbox{\hyperlink{_sistema_clave_8ino_source}{Sistema\+Clave.\+ino}}.
+
+\Hypertarget{_sistema_clave_8ino_a9a08b52ee75702e498105356d83e4c5c}\label{_sistema_clave_8ino_a9a08b52ee75702e498105356d83e4c5c} 
+\index{SistemaClave.ino@{SistemaClave.ino}!sonidoErrado@{sonidoErrado}}
+\index{sonidoErrado@{sonidoErrado}!SistemaClave.ino@{SistemaClave.ino}}
+\doxysubsubsection{\texorpdfstring{sonidoErrado()}{sonidoErrado()}}
+{\footnotesize\ttfamily void sonido\+Errado (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_sistema_clave_8ino_source_l00199}{199}} of file \mbox{\hyperlink{_sistema_clave_8ino_source}{Sistema\+Clave.\+ino}}.
+
+\Hypertarget{_sistema_clave_8ino_a2db3e37b020d71870ef1021eac8ee9f7}\label{_sistema_clave_8ino_a2db3e37b020d71870ef1021eac8ee9f7} 
+\index{SistemaClave.ino@{SistemaClave.ino}!updateCursor@{updateCursor}}
+\index{updateCursor@{updateCursor}!SistemaClave.ino@{SistemaClave.ino}}
+\doxysubsubsection{\texorpdfstring{updateCursor()}{updateCursor()}}
+{\footnotesize\ttfamily void update\+Cursor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_sistema_clave_8ino_source_l00157}{157}} of file \mbox{\hyperlink{_sistema_clave_8ino_source}{Sistema\+Clave.\+ino}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{_sistema_clave_8ino_a8a39bd89195ffac0f9fa3a2f0fe83fa5}\label{_sistema_clave_8ino_a8a39bd89195ffac0f9fa3a2f0fe83fa5} 
+\index{SistemaClave.ino@{SistemaClave.ino}!ban@{ban}}
+\index{ban@{ban}!SistemaClave.ino@{SistemaClave.ino}}
+\doxysubsubsection{\texorpdfstring{ban}{ban}}
+{\footnotesize\ttfamily boolean ban = false}
+
+
+
+Definition at line \mbox{\hyperlink{_sistema_clave_8ino_source_l00063}{63}} of file \mbox{\hyperlink{_sistema_clave_8ino_source}{Sistema\+Clave.\+ino}}.
+
+\Hypertarget{_sistema_clave_8ino_a3c964a40ceee38dff58e11bf85ebcf5e}\label{_sistema_clave_8ino_a3c964a40ceee38dff58e11bf85ebcf5e} 
+\index{SistemaClave.ino@{SistemaClave.ino}!colPins@{colPins}}
+\index{colPins@{colPins}!SistemaClave.ino@{SistemaClave.ino}}
+\doxysubsubsection{\texorpdfstring{colPins}{colPins}}
+{\footnotesize\ttfamily byte col\+Pins\mbox{[}\mbox{\hyperlink{_sistema_clave_8ino_a11f9025ef955263da5731a506b2d830d}{KEYPAD\+\_\+\+COLS}}\mbox{]} = \{A3, A2, A1, A4\}}
+
+
+
+Definition at line \mbox{\hyperlink{_sistema_clave_8ino_source_l00026}{26}} of file \mbox{\hyperlink{_sistema_clave_8ino_source}{Sistema\+Clave.\+ino}}.
+
+\Hypertarget{_sistema_clave_8ino_aff26b1d15dd10336e33d0138e24aa8df}\label{_sistema_clave_8ino_aff26b1d15dd10336e33d0138e24aa8df} 
+\index{SistemaClave.ino@{SistemaClave.ino}!DHT@{DHT}}
+\index{DHT@{DHT}!SistemaClave.ino@{SistemaClave.ino}}
+\doxysubsubsection{\texorpdfstring{DHT}{DHT}}
+{\footnotesize\ttfamily DHTStable DHT}
+
+Temperature sensor control functions 
+
+Definition at line \mbox{\hyperlink{_sistema_clave_8ino_source_l00018}{18}} of file \mbox{\hyperlink{_sistema_clave_8ino_source}{Sistema\+Clave.\+ino}}.
+
+\Hypertarget{_sistema_clave_8ino_a01494b8fd5801ba9e205324f4b1545ea}\label{_sistema_clave_8ino_a01494b8fd5801ba9e205324f4b1545ea} 
+\index{SistemaClave.ino@{SistemaClave.ino}!i@{i}}
+\index{i@{i}!SistemaClave.ino@{SistemaClave.ino}}
+\doxysubsubsection{\texorpdfstring{i}{i}}
+{\footnotesize\ttfamily unsigned char i = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_sistema_clave_8ino_source_l00071}{71}} of file \mbox{\hyperlink{_sistema_clave_8ino_source}{Sistema\+Clave.\+ino}}.
+
+\Hypertarget{_sistema_clave_8ino_a94f5b83df4e7e681da46bfa503ac6b1a}\label{_sistema_clave_8ino_a94f5b83df4e7e681da46bfa503ac6b1a} 
+\index{SistemaClave.ino@{SistemaClave.ino}!intentos@{intentos}}
+\index{intentos@{intentos}!SistemaClave.ino@{SistemaClave.ino}}
+\doxysubsubsection{\texorpdfstring{intentos}{intentos}}
+{\footnotesize\ttfamily byte intentos = 3}
+
+
+
+Definition at line \mbox{\hyperlink{_sistema_clave_8ino_source_l00066}{66}} of file \mbox{\hyperlink{_sistema_clave_8ino_source}{Sistema\+Clave.\+ino}}.
+
+\Hypertarget{_sistema_clave_8ino_a0e6c3cc7e8c762ab0ca1fa2296d7bbfe}\label{_sistema_clave_8ino_a0e6c3cc7e8c762ab0ca1fa2296d7bbfe} 
+\index{SistemaClave.ino@{SistemaClave.ino}!keypad@{keypad}}
+\index{keypad@{keypad}!SistemaClave.ino@{SistemaClave.ino}}
+\doxysubsubsection{\texorpdfstring{keypad}{keypad}}
+{\footnotesize\ttfamily Keypad keypad = Keypad(make\+Keymap(\mbox{\hyperlink{_sistema_clave_8ino_a6cd72e3b474ca29b76d4a7758b0bfff5}{keys}}), \mbox{\hyperlink{_sistema_clave_8ino_a537de3b3399ca7c8fdec5862538861ab}{row\+Pins}}, \mbox{\hyperlink{_sistema_clave_8ino_a3c964a40ceee38dff58e11bf85ebcf5e}{col\+Pins}}, \mbox{\hyperlink{_sistema_clave_8ino_a332148869b2d5d97d18079aa63a2c553}{KEYPAD\+\_\+\+ROWS}}, \mbox{\hyperlink{_sistema_clave_8ino_a11f9025ef955263da5731a506b2d830d}{KEYPAD\+\_\+\+COLS}})}
+
+
+
+Definition at line \mbox{\hyperlink{_sistema_clave_8ino_source_l00033}{33}} of file \mbox{\hyperlink{_sistema_clave_8ino_source}{Sistema\+Clave.\+ino}}.
+
+\Hypertarget{_sistema_clave_8ino_a11f9025ef955263da5731a506b2d830d}\label{_sistema_clave_8ino_a11f9025ef955263da5731a506b2d830d} 
+\index{SistemaClave.ino@{SistemaClave.ino}!KEYPAD\_COLS@{KEYPAD\_COLS}}
+\index{KEYPAD\_COLS@{KEYPAD\_COLS}!SistemaClave.ino@{SistemaClave.ino}}
+\doxysubsubsection{\texorpdfstring{KEYPAD\_COLS}{KEYPAD\_COLS}}
+{\footnotesize\ttfamily const byte KEYPAD\+\_\+\+COLS = 4}
+
+
+
+Definition at line \mbox{\hyperlink{_sistema_clave_8ino_source_l00024}{24}} of file \mbox{\hyperlink{_sistema_clave_8ino_source}{Sistema\+Clave.\+ino}}.
+
+\Hypertarget{_sistema_clave_8ino_a332148869b2d5d97d18079aa63a2c553}\label{_sistema_clave_8ino_a332148869b2d5d97d18079aa63a2c553} 
+\index{SistemaClave.ino@{SistemaClave.ino}!KEYPAD\_ROWS@{KEYPAD\_ROWS}}
+\index{KEYPAD\_ROWS@{KEYPAD\_ROWS}!SistemaClave.ino@{SistemaClave.ino}}
+\doxysubsubsection{\texorpdfstring{KEYPAD\_ROWS}{KEYPAD\_ROWS}}
+{\footnotesize\ttfamily const byte KEYPAD\+\_\+\+ROWS = 4}
+
+Keypad control functions 
+
+Definition at line \mbox{\hyperlink{_sistema_clave_8ino_source_l00023}{23}} of file \mbox{\hyperlink{_sistema_clave_8ino_source}{Sistema\+Clave.\+ino}}.
+
+\Hypertarget{_sistema_clave_8ino_a6cd72e3b474ca29b76d4a7758b0bfff5}\label{_sistema_clave_8ino_a6cd72e3b474ca29b76d4a7758b0bfff5} 
+\index{SistemaClave.ino@{SistemaClave.ino}!keys@{keys}}
+\index{keys@{keys}!SistemaClave.ino@{SistemaClave.ino}}
+\doxysubsubsection{\texorpdfstring{keys}{keys}}
+{\footnotesize\ttfamily char keys\mbox{[}\mbox{\hyperlink{_sistema_clave_8ino_a332148869b2d5d97d18079aa63a2c553}{KEYPAD\+\_\+\+ROWS}}\mbox{]}\mbox{[}\mbox{\hyperlink{_sistema_clave_8ino_a11f9025ef955263da5731a506b2d830d}{KEYPAD\+\_\+\+COLS}}\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \{\textcolor{charliteral}{'1'},\ \textcolor{charliteral}{'2'},\ \textcolor{charliteral}{'3'},\ \textcolor{charliteral}{'A'}\},}
+\DoxyCodeLine{\ \ \{\textcolor{charliteral}{'4'},\ \textcolor{charliteral}{'5'},\ \textcolor{charliteral}{'6'},\ \textcolor{charliteral}{'B'}\},}
+\DoxyCodeLine{\ \ \{\textcolor{charliteral}{'7'},\ \textcolor{charliteral}{'8'},\ \textcolor{charliteral}{'9'},\ \textcolor{charliteral}{'C'}\},}
+\DoxyCodeLine{\ \ \{\textcolor{charliteral}{'.'},\ \textcolor{charliteral}{'0'},\ \textcolor{charliteral}{'='},\ \textcolor{charliteral}{'D'}\}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{_sistema_clave_8ino_source_l00027}{27}} of file \mbox{\hyperlink{_sistema_clave_8ino_source}{Sistema\+Clave.\+ino}}.
+
+\Hypertarget{_sistema_clave_8ino_afa84c2e2bc44a599431faefb07d2f607}\label{_sistema_clave_8ino_afa84c2e2bc44a599431faefb07d2f607} 
+\index{SistemaClave.ino@{SistemaClave.ino}!password@{password}}
+\index{password@{password}!SistemaClave.ino@{SistemaClave.ino}}
+\doxysubsubsection{\texorpdfstring{password}{password}}
+{\footnotesize\ttfamily char password\mbox{[}6\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{_sistema_clave_8ino_source_l00065}{65}} of file \mbox{\hyperlink{_sistema_clave_8ino_source}{Sistema\+Clave.\+ino}}.
+
+\Hypertarget{_sistema_clave_8ino_a71efda6978641548f428da4563415ed4}\label{_sistema_clave_8ino_a71efda6978641548f428da4563415ed4} 
+\index{SistemaClave.ino@{SistemaClave.ino}!passwordCorrecta@{passwordCorrecta}}
+\index{passwordCorrecta@{passwordCorrecta}!SistemaClave.ino@{SistemaClave.ino}}
+\doxysubsubsection{\texorpdfstring{passwordCorrecta}{passwordCorrecta}}
+{\footnotesize\ttfamily char password\+Correcta\mbox{[}$\,$\mbox{]} = \"{}12345\"{}}
+
+
+
+Definition at line \mbox{\hyperlink{_sistema_clave_8ino_source_l00064}{64}} of file \mbox{\hyperlink{_sistema_clave_8ino_source}{Sistema\+Clave.\+ino}}.
+
+\Hypertarget{_sistema_clave_8ino_a537de3b3399ca7c8fdec5862538861ab}\label{_sistema_clave_8ino_a537de3b3399ca7c8fdec5862538861ab} 
+\index{SistemaClave.ino@{SistemaClave.ino}!rowPins@{rowPins}}
+\index{rowPins@{rowPins}!SistemaClave.ino@{SistemaClave.ino}}
+\doxysubsubsection{\texorpdfstring{rowPins}{rowPins}}
+{\footnotesize\ttfamily byte row\+Pins\mbox{[}\mbox{\hyperlink{_sistema_clave_8ino_a332148869b2d5d97d18079aa63a2c553}{KEYPAD\+\_\+\+ROWS}}\mbox{]} = \{5, 4, 3, 2\}}
+
+
+
+Definition at line \mbox{\hyperlink{_sistema_clave_8ino_source_l00025}{25}} of file \mbox{\hyperlink{_sistema_clave_8ino_source}{Sistema\+Clave.\+ino}}.
+
+\Hypertarget{_sistema_clave_8ino_a4e630859cc0e2a22bd6acf39a6a8e218}\label{_sistema_clave_8ino_a4e630859cc0e2a22bd6acf39a6a8e218} 
+\index{SistemaClave.ino@{SistemaClave.ino}!value@{value}}
+\index{value@{value}!SistemaClave.ino@{SistemaClave.ino}}
+\doxysubsubsection{\texorpdfstring{value}{value}}
+{\footnotesize\ttfamily uint64\+\_\+t value = 0}
+
+Define global variables 
+
+Definition at line \mbox{\hyperlink{_sistema_clave_8ino_source_l00070}{70}} of file \mbox{\hyperlink{_sistema_clave_8ino_source}{Sistema\+Clave.\+ino}}.
+
