@@ -1,5 +1,0 @@
-var searchData=
-[
-  ['ban_0',['ban',['../_sistema_clave_8ino.html#a8a39bd89195ffac0f9fa3a2f0fe83fa5',1,'SistemaClave.ino']]],
-  ['block_1',['Block',['../_constum_char_8h.html#a98525351f6dca29fc649ca314098e173',1,'ConstumChar.h']]]
-];
