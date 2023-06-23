@@ -1,4 +1,4 @@
-/**
+/*
    Arduino Calculator
 
    Copyright (C) 2020, Uri Shaked.
@@ -46,8 +46,8 @@ Keypad keypad = Keypad(makeKeymap(keys), rowPins, colPins, KEYPAD_ROWS, KEYPAD_C
 #define DEBUG(a) Serial.print(millis()); Serial.print(": "); Serial.println(a);
 LiquidCrystal lcd(12, 11, 10, 9, 8, 7);
 
-/********************************************//**
- *  Asynchronous Task control functions
+/**********************************************
+   Asynchronous Task control functions
  ***********************************************/
 #include <AsyncTaskLib.h>
 void mostrarTemp();
@@ -64,7 +64,7 @@ void sonidoEntrar();
 void sonidoErrado();
 void sonidoBloquear();
 
-/********************************************//**
+/********************************************
     Password control functions
  ***********************************************/
 void sistemaContrasenia();
@@ -72,6 +72,7 @@ boolean ban = false;
 char passwordCorrecta[] = "12345";
 char password[6];
 byte intentos = 3;
+
 /********************************************//**
     Define global variables
  ***********************************************/
@@ -126,18 +127,11 @@ void loop() {
     }
   }
 }
-/*F**************************************************************************
-  NAME: showSpalshScreen
-  ----------------------------------------------------------------------------
-  PARAMS:   none
-  return:   none
-  ----------------------------------------------------------------------------
-  PURPOSE:
-  Displays a customized splash screen on an LCD display
-  ----------------------------------------------------------------------------
-  NOTE:
-
-*****************************************************************************/
+/**
+  * @brief Displays a customized splash screen on an LCD display
+  * @param none
+  * @return none
+*/
 void showSpalshScreen() {
   lcd.print("Bienvenido");
   lcd.setCursor(11, 0);
@@ -150,18 +144,11 @@ void showSpalshScreen() {
   }
   delay(500);
 }
-/*F**************************************************************************
-  NAME: updateCursor
-  ----------------------------------------------------------------------------
-  PARAMS:   none
-  return:   none
-  ----------------------------------------------------------------------------
-  PURPOSE:
-  Toggles the cursor on an LCD display based on a time-based condition
-  ----------------------------------------------------------------------------
-  NOTE:
-
-*****************************************************************************/
+/**
+  * @brief Toggles the cursor on an LCD display based on a time-based condition
+  * @param none
+  * @return none
+*/
 void updateCursor() {
   if (millis() / 250 % 2 == 0 ) {
     lcd.cursor();
@@ -169,18 +156,11 @@ void updateCursor() {
     lcd.noCursor();
   }
 }
-/*F**************************************************************************
-  NAME: sonidoEntrar
-  ----------------------------------------------------------------------------
-  PARAMS:   none
-  return:   none
-  ----------------------------------------------------------------------------
-  PURPOSE:
-  Plays a sequence of tones on a buzzer to create a sound effect
-  ----------------------------------------------------------------------------
-  NOTE:
-
-*****************************************************************************/
+/**
+  * @brief Plays a sequence of tones on a buzzer to create a sound effect
+  * @param none
+  * @return none
+*/
 void sonidoEntrar() {
 
   for (int i = 0; i < 25; i++) {			// bucle repite 25 veces
@@ -192,35 +172,21 @@ void sonidoEntrar() {
 
   }
 }
-/*F**************************************************************************
-  NAME: sonidoErrado
-  ----------------------------------------------------------------------------
-  PARAMS:   none
-  return:   none
-  ----------------------------------------------------------------------------
-  PURPOSE:
-  Plays an error sound on a buzzer
-  ----------------------------------------------------------------------------
-  NOTE:
-
-*****************************************************************************/
+/**
+  * @brief Plays an error sound on a buzzer
+  * @param none
+  * @return none
+*/
 void sonidoErrado() {
   tone(BUZZER, 1000, 100);
   delay(100);
   noTone(BUZZER);
 }
-/*F**************************************************************************
-  NAME: sonidoBloqueado
-  ----------------------------------------------------------------------------
-  PARAMS:   none
-  return:   none
-  ----------------------------------------------------------------------------
-  PURPOSE:
-  Plays a sequence of tones on a buzzer to create a "blocked" sound effect
-  ----------------------------------------------------------------------------
-  NOTE:
-
-*****************************************************************************/
+/**
+  * @brief Plays a sequence of tones on a buzzer to create a "blocked" sound effect
+  * @param none
+  * @return none
+*/
 void sonidoBloqueado() {
 
   for (int i = 0; i < 5; i++) {			// bucle repite 25 veces
@@ -231,18 +197,11 @@ void sonidoBloqueado() {
     noTone(BUZZER);
   }
 }
-/*F**************************************************************************
-  NAME: mostrarTemp
-  ----------------------------------------------------------------------------
-  PARAMS:   nonce
-  return:   none
-  ----------------------------------------------------------------------------
-  PURPOSE:
-  Reads humidity and temperature data from a DHT11 sensor and displays it on both the Serial monitor and an LCD display
-  ----------------------------------------------------------------------------
-  NOTE:
-
-*****************************************************************************/
+/**
+  * @brief Reads humidity and temperature data from a DHT11 sensor and displays it on both the Serial monitor and an LCD display
+  * @param none
+  * @return none
+*/
 void mostrarTemp() {
   Serial.println("nivel de humedad - temperatura");
   Serial.print("DHT11, \t");
@@ -274,18 +233,11 @@ void mostrarTemp() {
   Serial.println(DHT.getTemperature(), 1);
   lcd.print(DHT.getTemperature(), 1);
 }
-/*F**************************************************************************
-  NAME: mostrarLuz
-  ----------------------------------------------------------------------------
-  PARAMS:   none
-  return:   none
-  ----------------------------------------------------------------------------
-  PURPOSE:
-  Reads the light level from a photocell and displays it on both the Serial monitor and an LCD display
-  ----------------------------------------------------------------------------
-  NOTE:
-
-*****************************************************************************/
+/**
+  * @brief Reads the light level from a photocell and displays it on both the Serial monitor and an LCD display
+  * @param none
+  * @return none
+*/
 void mostrarLuz(void) {
   int outputValue = 0;
   Serial.println("nivel de luz");
@@ -298,18 +250,11 @@ void mostrarLuz(void) {
   lcd.setCursor(11, 0);
   lcd.print("");
 }
-/*F**************************************************************************
-  NAME: sistemaContrasenia
-  ----------------------------------------------------------------------------
-  PARAMS:   none
-  return:   none
-  ----------------------------------------------------------------------------
-  PURPOSE:
-  Implements a password-based system to control access. It compares the entered password with the correct password and performs actions accordingly
-  ----------------------------------------------------------------------------
-  NOTE:
-
-*****************************************************************************/
+/**
+  * @brief Implements a password-based system to control access. It compares the entered password with the correct password and performs actions accordingly
+  * @param none
+  * @return none
+*/
 void sistemaContrasenia() {
   if (strcmp(password, passwordCorrecta) == 0) {
     lcd.clear();
